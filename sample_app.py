@@ -8,7 +8,7 @@ import my_constraints as mc
 
 
 class SampleApp(tk.Tk):
-    NAMES_FILE = r"courses\names_of_courses.txt"
+    NAMES_FILE = r"courses\fake_names.txt"
     TIMES_FILE = r"courses\courses.txt"
 
     def __init__(self):
@@ -56,12 +56,7 @@ class SampleApp(tk.Tk):
             else:
                 problem = ScheduleProblem(self._my_constraints, list_of_courses_checked, lst_of_optional_courses_allowed,
                                           number_of_optional_courses, self._data_base)
-                start_time = time.time()
                 problem_solutions = problem.get_problem_solutions()
-                print("******* %s seconds total time ******* " % (time.time() - start_time))
-                print(f"sum due to overlap {self._my_constraints.get_sum_due_to_overlap()}")
-                print(f"sum due to exact sum {self._my_constraints.get_sum_due_to_exact_choice()}")
-                print(f"count overlap constrain calls{self._my_constraints.get_count_overlap_constraint_calls()}")
                 if not problem_solutions and number_of_optional_courses != 0:
                     frame2.set_exception_label("""אתם אנשים עם דרישות גבוהות :) מצטערים, אבל לא הצלחנו לבנות לכם מערכת.
                         בבקשה בחרו קורסים אחרים :) """)

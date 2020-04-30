@@ -3,12 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="063d11d6-e768-40ce-ab46-d05890a0110d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_base.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_base.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/old_sample_app.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/page_two.py" beforeDir="false" afterPath="$PROJECT_DIR$/page_two.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sample_app.py" beforeDir="false" afterPath="$PROJECT_DIR$/sample_app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/start_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/start_page.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/try.py" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -29,7 +24,7 @@
   <component name="ProjectId" id="1aOeAAf5Fr7o4SEd5w3PVvK16JT" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/my project" />
     <property name="settings.editor.selected.configurable" value="configurable.group.project" />
   </component>
   <component name="RecentsManager">
