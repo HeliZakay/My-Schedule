@@ -1,6 +1,5 @@
 from datetime import time
 from my_time import MyTime
-from itertools import *
 
 
 def str_into_time(st_of_time):

@@ -26,7 +26,7 @@ class PageTwo(tk.Frame):
         self.controller = controller
         self.canvas = tk.Canvas(self, width=1500, height=900)
         self.canvas.pack()
-        pil_img = Image.open(r"C:\Users\User\Desktop\landscape1.jpg")
+        pil_img = Image.open(r"pictures\beach-hd-background.jpg")
         self.img = ImageTk.PhotoImage(pil_img.resize((1500, 900), Image.ANTIALIAS))
         self.canvas.create_image(0, 0, anchor=tk.NW, image=self.img)
         self._data_base = self.controller.get_data_base()

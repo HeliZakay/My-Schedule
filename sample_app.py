@@ -8,8 +8,8 @@ import my_constraints as mc
 
 
 class SampleApp(tk.Tk):
-    NAMES_FILE = r'C:\Users\User\Desktop\fake_names.txt'
-    TIMES_FILE = r"C:\Users\User\Desktop\courses.txt"
+    NAMES_FILE = r"courses\names_of_courses.txt"
+    TIMES_FILE = r"courses\courses.txt"
 
     def __init__(self):
         tk.Tk.__init__(self)
