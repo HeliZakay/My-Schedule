@@ -1,3 +1,4 @@
+PyQt5==5.14.2
 python-constraint==1.4.0
 appdirs==1.4.3
 asn1crypto==0.24.0
