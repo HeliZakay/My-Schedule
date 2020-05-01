@@ -25,7 +25,6 @@ class MyConstraints:
                 return False
         if time.time() - start_time != 0:
             self._count_overlap_constraint_calls += 1
-            print(f"call took {time.time() - start_time}")
             self.increase_sum_due_to_overlap(time.time() - start_time)
         return True
 
