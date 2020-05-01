@@ -1,5 +1,5 @@
 # My-Schedule
-Hi! This innovative program will allow you to builed your own schedule!
+Hi! This innovative program will allow you to build your own schedule!
 
 If you want to insert your own real courses to the data base:
 Please change the files inside the 'courses' folder 
