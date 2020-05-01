@@ -41,3 +41,4 @@ virtualenv-clone==0.5.4
 zipp==3.1.0
 python-constraint==1.4.0
 PyQt5==5.14.2
+Pygments==2.6.1
