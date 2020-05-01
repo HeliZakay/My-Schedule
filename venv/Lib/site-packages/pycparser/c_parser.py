@@ -529,7 +529,8 @@ class CParser(PLYParser):
     def p_translation_unit_2(self, p):
         """ translation_unit    : translation_unit external_declaration
         """
-        p[1].extend(p[2])
+        if p[2] is not None:
+            p[1].extend(p[2])
         p[0] = p[1]
 
     # Declarations always come as lists (because they can be
@@ -556,7 +557,7 @@ class CParser(PLYParser):
     def p_external_declaration_4(self, p):
         """ external_declaration    : SEMI
         """
-        p[0] = []
+        p[0] = None
 
     def p_pp_directive(self, p):
         """ pp_directive  : PPHASH
@@ -1410,13 +1411,12 @@ class CParser(PLYParser):
         p[0] = self._type_modify_decl(decl=p[1], modifier=arr)
 
     def p_direct_abstract_declarator_3(self, p):
-        """ direct_abstract_declarator  : LBRACKET type_qualifier_list_opt assignment_expression_opt RBRACKET
+        """ direct_abstract_declarator  : LBRACKET assignment_expression_opt RBRACKET
         """
-        quals = (p[2] if len(p) > 4 else []) or []
         p[0] = c_ast.ArrayDecl(
             type=c_ast.TypeDecl(None, None, None),
-            dim=p[3] if len(p) > 4 else p[2],
-            dim_quals=quals,
+            dim=p[2],
+            dim_quals=[],
             coord=self._token_coord(p, 1))
 
     def p_direct_abstract_declarator_4(self, p):
@@ -1740,7 +1740,8 @@ class CParser(PLYParser):
         if len(p) == 2:
             p[0] = p[1]
         elif len(p) == 4:
-            p[0] = c_ast.StructRef(p[1], p[2], p[3], p[1].coord)
+            field = c_ast.ID(p[3], self._token_coord(p, 3))
+            p[0] = c_ast.StructRef(p[1], p[2], field, p[1].coord)
         elif len(p) == 5:
             p[0] = c_ast.ArrayRef(p[1], p[3], p[1].coord)
         else:
@@ -1765,23 +1766,9 @@ class CParser(PLYParser):
                         | INT_CONST_OCT
                         | INT_CONST_HEX
                         | INT_CONST_BIN
-                        | INT_CONST_CHAR
         """
-        uCount = 0
-        lCount = 0
-        for x in p[1][-3:]:
-            if x in ('l', 'L'):
-                lCount += 1
-            elif x in ('u', 'U'):
-                uCount += 1
-        t = ''
-        if uCount > 1:
-             raise ValueError('Constant cannot have more than one u/U suffix.')
-        elif lCount > 2:
-             raise ValueError('Constant cannot have more than two l/L suffix.')
-        prefix = 'unsigned ' * uCount + 'long ' * lCount
         p[0] = c_ast.Constant(
-            prefix + 'int', p[1], self._token_coord(p, 1))
+            'int', p[1], self._token_coord(p, 1))
 
     def p_constant_2(self, p):
         """ constant    : FLOAT_CONST

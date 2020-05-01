@@ -1,7 +1,6 @@
 from tkinter import DISABLED, NORMAL
 from PIL import Image, ImageTk
 from constraint import Problem
-from my_constraints import *
 from my_check_button import *
 import my_constraints as mc
 import tkinter.font as font

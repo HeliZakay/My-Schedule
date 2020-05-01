@@ -3,7 +3,6 @@ from schedule_problem import ScheduleProblem
 from schedule_manager import ScheduleManager
 from start_page import *
 import data_base as db
-import time
 import my_constraints as mc
 
 
